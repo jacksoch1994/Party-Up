@@ -29,6 +29,22 @@ public interface UserDao {
      * @param groupId groupId of the specified playgroup
      * @return a List of Users in the playgroup
      */
-    List<User> getUserByGroup(int groupId);
+    List<User> getUsersByGroup(int groupId);
+
+    /**
+     * Creates a new User in the database.
+     *
+     * @param user User object to add to the database.
+     * @return the newly added User
+     */
+    User createUser(User user);
+
+    /**
+     * Updates the values of a User in the database.
+     *
+     * @param user the User object to update the database with
+     * @return the newly updated User
+     */
+    User updateUser(User user);
 
 }

@@ -38,5 +38,22 @@ public interface MessageDao {
      * @param receiverId
      * @return
      */
-    List<Message> getMessagesBySenderReciever(int senderId, int receiverId);
+    List<Message> getMessagesBySenderReceiver(int senderId, int receiverId);
+
+    /**
+     * Updates a message to reflect the values in the provided Message. Does not update the timestamp,
+     * senderId, or receiverId of the message.
+     *
+     * @param updatedMessage Message object with the id of the Message to be updated.
+     * @return the updated Message object
+     */
+    Message updateMessage(Message updatedMessage);
+
+    /**
+     * Adds a new message to the database.
+     *
+     * @param newMessage Message object to add to the database
+     * @return the added Message with new id value
+     */
+    Message addMessage(Message newMessage);
 }

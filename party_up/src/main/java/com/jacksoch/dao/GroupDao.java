@@ -29,4 +29,27 @@ public interface GroupDao {
      * @return a List of Groups that the User is a player in
      */
     List<Group> getGroupsByPlayer(int playerId);
+
+    /**
+     * Creates a new Group in the database.
+     *
+     * @param group the Group to add.
+     * @return the newly added Group.
+     */
+    Group createGroup(Group group);
+
+    /**
+     * Updates a Group in the database.
+     *
+     * @param group the Group to update.
+     * @return the newly updated Group.
+     */
+    Group updateGroup(Group group);
+
+    /**
+     * Removes a group from the database.
+     *
+     * @param group the Group to remove from the database.
+     */
+    void deleteGroup(Group group);
 }

@@ -10,7 +10,7 @@ public class Message {
 
     private int id;
     private int senderId;
-    private int recieverId;
+    private int receiverId;
     LocalDateTime timestamp = LocalDateTime.now();
     private String content;
 
@@ -26,8 +26,8 @@ public class Message {
         return senderId;
     }
 
-    public int getRecieverId() {
-        return recieverId;
+    public int getReceiverId() {
+        return receiverId;
     }
 
     public LocalDateTime getTimestamp() {
@@ -50,24 +50,31 @@ public class Message {
         this.senderId = senderId;
     }
 
-    public void setRecieverId(int recieverId) {
-        this.recieverId = recieverId;
+    public void setReceiverId(int recieverId) {
+        this.receiverId = recieverId;
     }
 
     public void setContent(String content) {
         this.content = content;
     }
 
+    public void setTimestamp(LocalDateTime timestamp) {this.timestamp = timestamp;};
+
     /*
     ########################################   Constructor   ##########################################
      */
 
-    //Constructor for all required fields. LocalDateTime field is defaulted to the time of creation and cannot be changed.
-    public Message(int id, int senderId, int recieverId, String content) {
+    //Constructor for all required fields. LocalDateTime field is defaulted to the time of creation.
+    public Message(int id, int senderId, int receiverId, String content) {
         this.id = id;
         this.senderId = senderId;
-        this.recieverId = recieverId;
+        this.receiverId = receiverId;
         this.content = content;
+    }
+
+    public Message(int id, int senderId, int receiverId, String content, LocalDateTime timestamp) {
+        this(id, senderId, receiverId, content);
+        this.timestamp = timestamp;
     }
 
 }

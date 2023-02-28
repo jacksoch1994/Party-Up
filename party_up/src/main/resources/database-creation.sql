@@ -10,7 +10,7 @@ CREATE TABLE user_account (
 	, username VARCHAR(30) NOT NULL UNIQUE
 	, email VARCHAR(100) NOT NULL UNIQUE
 	, phone VARCHAR(20)
-	, pfp_url VARCHAR(250) 
+	, pfp_url VARCHAR(250) DEFAULT('none')
 );
 
 --Table representing the games hosted by the users
@@ -55,5 +55,6 @@ CREATE TABLE join_request (
 	
 	, CONSTRAINT pk_player_game_id PRIMARY KEY (player_id, group_id)
 );
+
 
 

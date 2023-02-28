@@ -12,4 +12,19 @@ public interface JoinRequestDao {
      * @return a JoinRequest object
      */
     JoinRequest getJoinRequest(int playerId, int groupId);
+
+    /**
+     * Creates a new JoinRequest with the specified playerId and JoinId.
+     *
+     * @param newRequest the new JoinRequest object to add.
+     */
+    void createJoinRequest(JoinRequest newRequest);
+
+
+    /**
+     * Deletes an existing JoinRequest with the specified playerId and JoinId.
+     *
+     * @param newRequest JoinRequest object to remove.
+     */
+    void deleteJoinRequest(JoinRequest newRequest);
 }
