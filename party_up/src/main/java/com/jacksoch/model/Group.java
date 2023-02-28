@@ -49,6 +49,10 @@ public class Group {
         return location;
     }
 
+    public boolean isAcceptingNewPlayers() {
+        return isAcceptingNewPlayers;
+    }
+
     /*
     ######################################## Setter Methods ##########################################
      */
@@ -71,10 +75,6 @@ public class Group {
 
     public void setMaxPlayerCount(int maxPlayerCount) {
         this.maxPlayerCount = maxPlayerCount;
-    }
-
-    public boolean isAcceptingNewPlayers() {
-        return isAcceptingNewPlayers;
     }
 
     public void setAcceptingNewPlayers(boolean acceptingNewPlayers) {

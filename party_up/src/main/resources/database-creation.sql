@@ -1,7 +1,8 @@
-DROP TABLE IF EXISTS user_group; 
+DROP TABLE IF EXISTS user_group;
+DROP TABLE IF EXISTS join_request;
 DROP TABLE IF EXISTS user_message;
-DROP TABLE IF EXISTS play_group; 
-DROP TABLE IF EXISTS user_account; 
+DROP TABLE IF EXISTS play_group;
+DROP TABLE IF EXISTS user_account;
 
 --Table for each individual user
 CREATE TABLE user_account (
@@ -30,12 +31,12 @@ CREATE TABLE play_group (
 CREATE TABLE user_message (
 	message_id SERIAL NOT NULL PRIMARY KEY
 	, sender_id INT NOT NULL
-	, reciever_id INT NOT NULL
+	, receiver_id INT NOT NULL
 	, send_date TIMESTAMP NOT NULL DEFAULT(LOCALTIMESTAMP)
 	, message_content VARCHAR(255) NOT NULL
 	
 	, CONSTRAINT fk_sender_user FOREIGN KEY (sender_id) REFERENCES user_account(user_id)
-	, CONSTRAINT fk_receiver_user FOREIGN KEY (reciever_id) REFERENCES user_account(user_id)
+	, CONSTRAINT fk_receiver_user FOREIGN KEY (receiver_id) REFERENCES user_account(user_id)
 );
 
 --Table to Associate users with games they are in as players
@@ -48,7 +49,11 @@ CREATE TABLE user_group (
 	, CONSTRAINT fk_user_group_group FOREIGN KEY (group_id) REFERENCES play_group(group_id)
 );
 
-SELECT * FROM user_game;
-
+CREATE TABLE join_request (
+	player_id INT NOT NULL
+	, group_id INT NOT NULL
+	
+	, CONSTRAINT pk_player_game_id PRIMARY KEY (player_id, group_id)
+);
 
 
