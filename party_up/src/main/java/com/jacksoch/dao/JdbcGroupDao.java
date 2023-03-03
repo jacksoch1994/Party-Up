@@ -28,6 +28,18 @@ public class JdbcGroupDao implements GroupDao{
      */
 
     @Override
+    public List<Group> getAllGroups() {
+        String sql = "SELECT * FROM play_group;";
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql);
+
+        List<Group> groups = new ArrayList<>();
+        while (rows.next()) {
+            groups.add(mapRowToGroup(rows));
+        }
+        return groups;
+    }
+
+    @Override
     public Group getGroup(int groupId) {
         String sql = "SELECT * FROM play_group WHERE group_id = ?;";
         SqlRowSet row = jdbcTemplate.queryForRowSet(sql, groupId);
@@ -64,6 +76,19 @@ public class JdbcGroupDao implements GroupDao{
     }
 
     @Override
+    public List<Group> getGroupsByOwnerAndPlayer(int ownerId, int playerId) {
+        String sql = "SELECT * FROM play_group WHERE owner_id = ? AND group_id IN (SELECT group_id FROM user_group "
+                + "WHERE player_id = ?);";
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, ownerId, playerId);
+
+        List<Group> groups = new ArrayList<>();
+        while (rows.next()) {
+            groups.add(mapRowToGroup(rows));
+        }
+        return groups;
+    }
+
+    @Override
     public Group createGroup(Group group) {
         String sql = "INSERT INTO play_group(owner_id, title, game, max_player_count, accepting_new_players, "
                 + "description, game_location) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING group_id;";
@@ -77,22 +102,22 @@ public class JdbcGroupDao implements GroupDao{
     }
 
     @Override
-    public Group updateGroup(Group group) {
+    public Group updateGroup(Group group, int id) {
         String sql = "UPDATE play_group SET owner_id=?, title=?, game=?, max_player_count=?, "
         + "accepting_new_players=?, description=?, game_location=? WHERE group_id=? RETURNING group_id;";
-        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, group.getOwnerId(), group.getTitle(),
+        Integer returnId = jdbcTemplate.queryForObject(sql, Integer.class, group.getOwnerId(), group.getTitle(),
                 group.getGame(), group.getMaxPlayerCount(), group.isAcceptingNewPlayers(),
-                group.getDescription(), group.getLocation(), group.getId());
+                group.getDescription(), group.getLocation(), id);
 
         //Handle potential NullPointerException
-        if (id == null) id = -1;
-        return getGroup(id);
+        if (returnId == null) returnId = -1;
+        return getGroup(returnId);
     }
 
     @Override
-    public void deleteGroup(Group group) {
+    public void deleteGroup(int id) {
         String sql = "DELETE FROM play_group WHERE group_id = ?;";
-        jdbcTemplate.update(sql, group.getId());
+        jdbcTemplate.update(sql, id);
     }
 
     /*

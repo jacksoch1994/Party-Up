@@ -1,15 +1,12 @@
 package com.jacksoch.controller;
 
-import com.jacksoch.dao.JdbcMessageDao;
 import com.jacksoch.dao.MessageDao;
 import com.jacksoch.model.Message;
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +20,6 @@ public class MessageController {
     public MessageController(MessageDao dao) {
         this.dao = dao;
     }
-
 
     @GetMapping()
     public List<Message> get(@RequestParam(required = false) Integer senderId, @RequestParam(required = false) Integer receiverId) {

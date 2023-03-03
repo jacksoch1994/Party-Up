@@ -1,9 +1,3 @@
-DROP TABLE IF EXISTS user_group;
-DROP TABLE IF EXISTS join_request;
-DROP TABLE IF EXISTS user_message;
-DROP TABLE IF EXISTS play_group;
-DROP TABLE IF EXISTS user_account;
-
 --Table for each individual user
 CREATE TABLE user_account (
 	user_id SERIAL NOT NULL PRIMARY KEY

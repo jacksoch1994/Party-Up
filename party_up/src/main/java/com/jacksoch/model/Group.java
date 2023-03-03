@@ -1,5 +1,6 @@
 package com.jacksoch.model;
 
+//Todo: ADD SPRING VALIDATION
 public class Group {
 
     /*
@@ -110,4 +111,6 @@ public class Group {
         this.description = description;
         this.location = location;
     }
+
+    public Group() {};
 }
