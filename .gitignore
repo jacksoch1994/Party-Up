@@ -1,1 +1,2 @@
-\party_up\src\main\resources\application.properties
+party_up/src/main/resources/application.properties
+party_up/target/classes/application.properties
