@@ -2,6 +2,8 @@ package com.jacksoch.dao;
 
 import com.jacksoch.model.JoinRequest;
 
+import java.util.List;
+
 public interface JoinRequestDao {
 
     /**
@@ -12,6 +14,29 @@ public interface JoinRequestDao {
      * @return a JoinRequest object
      */
     JoinRequest getJoinRequest(int playerId, int groupId);
+
+    /**
+     * Get a List of all Join Requests.
+     *
+     * @return a List of JoinRequests
+     */
+    List<JoinRequest> getAllJoinRequests();
+
+    /**
+     * Get a List of JoinRequests that a player has sent.
+     *
+     * @param playerId the userId of the player
+     * @return
+     */
+    List<JoinRequest> getAllJoinRequestsByPlayer(int playerId);
+
+    /**
+     * Get a List of JoinRequests for a particular group.
+     *
+     * @param groupId
+     * @return
+     */
+    List<JoinRequest> getAllJoinRequestsByGroup(int groupId);
 
     /**
      * Creates a new JoinRequest with the specified playerId and JoinId.

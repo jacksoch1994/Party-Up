@@ -78,4 +78,6 @@ public class User {
         this. pfpURL = pfpURL;
     }
 
+    public User() {}
+
 }

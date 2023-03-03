@@ -47,7 +47,7 @@ public interface MessageDao {
      * @param updatedMessage Message object with the id of the Message to be updated.
      * @return the updated Message object
      */
-    Message updateMessage(Message updatedMessage);
+    Message updateMessage(Message updatedMessage, int id);
 
     /**
      * Adds a new message to the database.
@@ -56,4 +56,11 @@ public interface MessageDao {
      * @return the added Message with new id value
      */
     Message addMessage(Message newMessage);
+
+    /**
+     * Deletes a message from the database.
+     *
+     * @param id the id of the message to delete
+     */
+    void deleteMessage(int id);
 }

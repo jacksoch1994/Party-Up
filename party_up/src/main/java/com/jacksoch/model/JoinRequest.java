@@ -42,4 +42,6 @@ public class JoinRequest {
         this.group_id = group_id;
     }
 
+    public JoinRequest() {}
+
 }

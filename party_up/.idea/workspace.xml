@@ -5,18 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4041ae74-9198-431a-bd8b-dd2d1fa9249c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/GroupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/JoinRequestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/GroupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/GroupDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/GroupDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcGroupDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcGroupDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database-creation.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database-creation.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcMessageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcMessageDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JoinRequestDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JoinRequestDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/MessageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/MessageDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/JoinRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/JoinRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jacksoch/controller/GroupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jacksoch/controller/GroupController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jacksoch/controller/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jacksoch/controller/MessageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jacksoch/dao/GroupDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jacksoch/dao/GroupDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jacksoch/dao/JdbcGroupDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jacksoch/dao/JdbcGroupDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jacksoch/model/Group.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jacksoch/model/Group.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database-creation.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database-creation.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jacksoch/dao/JdbcMessageDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jacksoch/dao/JdbcMessageDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jacksoch/dao/MessageDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jacksoch/dao/MessageDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jacksoch/model/JoinRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jacksoch/model/JoinRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jacksoch/model/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jacksoch/model/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jacksoch/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jacksoch/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

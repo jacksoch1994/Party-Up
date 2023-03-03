@@ -78,13 +78,13 @@ public class JdbcMessageDao implements MessageDao {
     }
 
     @Override
-    public Message updateMessage(Message updatedMessage) {
+    public Message updateMessage(Message updatedMessage, int id) {
         String sql = "UPDATE user_message SET message_content = ? WHERE message_id = ? RETURNING message_id;";
-        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, updatedMessage.getContent());
+        Integer updatedId = jdbcTemplate.queryForObject(sql, Integer.class, updatedMessage.getContent(), id);
 
         //Handle null case
-        if (id == null) id = -1;
-        return getMessage(id);
+        if (updatedId == null) updatedId = -1;
+        return getMessage(updatedId);
     }
 
     @Override
@@ -96,6 +96,12 @@ public class JdbcMessageDao implements MessageDao {
         //Handle null case
         if (id == null) id = -1;
         return getMessage(id);
+    }
+
+    @Override
+    public void deleteMessage(int id) {
+        String sql = "DELETE FROM user_message WHERE message_id = ?;";
+        jdbcTemplate.update(sql);
     }
 
      /*

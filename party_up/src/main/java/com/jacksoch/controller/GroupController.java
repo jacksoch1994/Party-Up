@@ -51,7 +51,7 @@ public class GroupController {
 
         //Handle if not found
         if (group == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unknown Group");
         }
         //Return value
         return group;
