@@ -3,12 +3,14 @@ package com.jacksoch.dao;
 import com.jacksoch.model.Message;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcMessageDao implements MessageDao {
 
     /*
@@ -21,7 +23,7 @@ public class JdbcMessageDao implements MessageDao {
     ########################################   Constructor   ##########################################
      */
 
-    public JdbcMessageDao(DataSource dataSource) {this.jdbcTemplate = new JdbcTemplate(dataSource);};
+    public JdbcMessageDao(JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate;}
 
     /*
     #########################################  DAO Methods  ###########################################

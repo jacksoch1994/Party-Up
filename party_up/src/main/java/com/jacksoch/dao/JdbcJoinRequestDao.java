@@ -3,9 +3,11 @@ package com.jacksoch.dao;
 import com.jacksoch.model.JoinRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 
+@Component
 public class JdbcJoinRequestDao implements JoinRequestDao{
 
     /*
@@ -18,7 +20,7 @@ public class JdbcJoinRequestDao implements JoinRequestDao{
     ########################################   Constructor   ##########################################
      */
 
-    public JdbcJoinRequestDao(DataSource dataSource) {this.jdbcTemplate = new JdbcTemplate(dataSource);};
+    public JdbcJoinRequestDao(JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate;}
 
     /*
     #########################################  DAO Methods  ###########################################

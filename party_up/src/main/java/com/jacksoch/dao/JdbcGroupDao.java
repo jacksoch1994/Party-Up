@@ -3,11 +3,13 @@ package com.jacksoch.dao;
 import com.jacksoch.model.Group;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcGroupDao implements GroupDao{
     /*
     ########################################   Attributes   ##########################################
@@ -19,7 +21,7 @@ public class JdbcGroupDao implements GroupDao{
     ########################################   Constructor   ##########################################
      */
 
-    public JdbcGroupDao(DataSource dataSource) {this.jdbcTemplate = new JdbcTemplate(dataSource);};
+    public JdbcGroupDao(JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate;}
 
     /*
     #########################################  DAO Methods  ###########################################
