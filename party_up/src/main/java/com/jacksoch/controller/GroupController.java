@@ -12,18 +12,22 @@ import java.util.List;
 @RequestMapping("/groups")
 public class GroupController {
 
-
     /*
     ########################################   Attributes   ##########################################
      */
 
     private GroupDao dao;
 
+    /*
+   ########################################   Constructor   ##########################################
+    */
+
     public GroupController(GroupDao dao) {
         this.dao = dao;
     }
+
     /*
-   ########################################   Constructor   ##########################################
+   ########################################  API Endpoints  ##########################################
     */
 
     @GetMapping

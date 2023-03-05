@@ -9,16 +9,27 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/messages")
 public class MessageController {
 
+     /*
+    ########################################   Attributes   ##########################################
+     */
+
     private MessageDao dao;
+
+    /*
+   ########################################   Constructor   ##########################################
+    */
 
     public MessageController(MessageDao dao) {
         this.dao = dao;
     }
+
+    /*
+   ########################################  API Endpoints  ##########################################
+    */
 
     @GetMapping
     public List<Message> getAllMessages(@RequestParam(required = false) Integer senderId, @RequestParam(required = false) Integer receiverId) {

@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +36,33 @@ public class JdbcUserDao implements  UserDao{
             user = mapRowToUser(rows);
         }
         return user;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        String sql = "SELECT * FROM user_account;";
+
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql);
+        List<User> users = new ArrayList<>();
+
+        while (rows.next()) {
+            users.add(mapRowToUser(rows));
+        }
+        return users;
+    }
+
+    @Override
+    public List<User> getAllUsersWithNameContaining(String searchParam) {
+        String sql = "SELECT * FROM user_account WHERE username LIKE ?;";
+        String searchString = "%" + searchParam + "%";
+
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, searchString);
+        List<User> users = new ArrayList<>();
+
+        while (rows.next()) {
+            users.add(mapRowToUser(rows));
+        }
+        return users;
     }
 
     @Override
@@ -77,14 +103,20 @@ public class JdbcUserDao implements  UserDao{
     }
 
     @Override
-    public User updateUser(User user) {
+    public User updateUser(User user, int id) {
         String sql = "UPDATE user_account SET username=?, email=?, phone=?, pfp_url=? WHERE user_id=?;";
-        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, user.getUsername(), user.getEmail(),
-                user.getPhone(), user.getPfpURL());
+        Integer updatedId = jdbcTemplate.queryForObject(sql, Integer.class, user.getUsername(), user.getEmail(),
+                user.getPhone(), user.getPfpURL(), id);
 
         //Handle potential NullPointerException
-        if (id == null) id = -1;
-        return getUser(id);
+        if (updatedId == null) updatedId = -1;
+        return getUser(updatedId);
+    }
+
+    @Override
+    public void deleteUser(int userId) {
+        String sql = "DELETE FROM user_account WHERE user_id = ?;";
+        jdbcTemplate.update(sql, userId);
     }
 
     /*

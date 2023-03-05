@@ -15,13 +15,27 @@ public interface UserDao {
     User getUser(int userId);
 
     /**
+     * Return a List of all Users.
+     *
+     * @return a List of all Users.
+     */
+    List<User> getAllUsers();
+
+    /**
+     * Return a List of all Users containing the specified string in their username.
+     *
+     * @param searchParam the String to search for in all Users' usernames.
+     * @return a List of all Users with the specified substring in their username.
+     */
+    List<User> getAllUsersWithNameContaining(String searchParam);
+
+    /**
      * Return the User corresponding to the username provided. If user does not exist, return null.
      *
      * @param username username of the User
      * @return the User assigned to the provided username
      */
     User getUserByUsername(String username);
-
 
     /**
      * Return a list of Users that are players in the playgroup with the provided groupId.
@@ -45,6 +59,13 @@ public interface UserDao {
      * @param user the User object to update the database with
      * @return the newly updated User
      */
-    User updateUser(User user);
+    User updateUser(User user, int id);
+
+    /**
+     * Deletes a user from the database.
+     *
+     * @param userId the id of the User to remove.
+     */
+    void deleteUser(int userId);
 
 }

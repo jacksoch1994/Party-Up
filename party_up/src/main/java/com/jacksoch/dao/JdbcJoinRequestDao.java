@@ -6,6 +6,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class JdbcJoinRequestDao implements JoinRequestDao{
@@ -39,8 +41,47 @@ public class JdbcJoinRequestDao implements JoinRequestDao{
     }
 
     @Override
+    public List<JoinRequest> getAllJoinRequests() {
+        String sql = "SELECT * FROM join_request;";
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql);
+
+        List<JoinRequest> requests = new ArrayList<>();
+        while (rows.next()) {
+            requests.add(mapToJoinRequest(rows));
+        }
+
+        return requests;
+    }
+
+    @Override
+    public List<JoinRequest> getAllJoinRequestsByPlayer(int playerId) {
+        String sql = "SELECT * FROM join_request WHERE player_id = ?;";
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, playerId);
+
+        List<JoinRequest> requests = new ArrayList<>();
+        while (rows.next()) {
+            requests.add(mapToJoinRequest(rows));
+        }
+
+        return requests;
+    }
+
+    @Override
+    public List<JoinRequest> getAllJoinRequestsByGroup(int groupId) {
+        String sql = "SELECT * FROM join_request WHERE group_id = ?;";
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, groupId);
+
+        List<JoinRequest> requests = new ArrayList<>();
+        while (rows.next()) {
+            requests.add(mapToJoinRequest(rows));
+        }
+
+        return requests;
+    }
+
+    @Override
     public void createJoinRequest(JoinRequest newRequest) {
-        String sql = "INSERT INTO join_request(playerId, groupId) VALUES (?,?);";
+        String sql = "INSERT INTO join_request(player_id, group_id) VALUES (?,?);";
         jdbcTemplate.update(sql, newRequest.getPlayer_id(), newRequest.getGroup_id());
     }
 
