@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4041ae74-9198-431a-bd8b-dd2d1fa9249c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/JoinRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/JoinRequestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcJoinRequestDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcJoinRequestDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcUserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

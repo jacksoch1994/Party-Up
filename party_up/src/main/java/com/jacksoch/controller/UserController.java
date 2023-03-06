@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -33,6 +34,12 @@ public class UserController {
                            @RequestParam(required = false) Integer groupId) {
         List<User> users = null;
 
+        //Handle being given multiple RequestParameters
+        if (groupId != null && nameLike != null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Only one request parameter can be specified in "
+                    + "the URL.");
+        }
+
         if (groupId != null) {
             users = dao.getUsersByGroup(groupId);
         } else if (nameLike != null) {
@@ -52,16 +59,15 @@ public class UserController {
         return user;
     }
 
-    //ToDo: Validate User
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public User create(@RequestBody User user) {
+    public User create(@Valid @RequestBody User user) {
         return dao.createUser(user);
     }
 
     //ToDo: Validate User
     @PutMapping("/{id}")
-    public User update(@RequestBody User user, @PathVariable int id) {
+    public User update(@Valid @RequestBody User user, @PathVariable int id) {
         if (dao.getUser(id) == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unknown User");
         }

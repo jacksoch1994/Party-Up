@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,16 +55,14 @@ public class MessageController {
         return message;
     }
 
-    //Todo: ADD VALIDATION
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Message create(@RequestBody Message message) {
+    public Message create(@Valid @RequestBody Message message) {
         return dao.addMessage(message);
     }
 
-    //Todo: ADD VALIDATION
     @PutMapping("/{id}")
-    public Message update(@RequestBody Message message, @PathVariable int id) {
+    public Message update(@Valid @RequestBody Message message, @PathVariable int id) {
         //Handling message not existing
         if (getMessage(id) == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unknown Message");

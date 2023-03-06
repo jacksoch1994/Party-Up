@@ -1,5 +1,7 @@
 package com.jacksoch.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 public class Message {
@@ -8,10 +10,12 @@ public class Message {
     ########################################   Attributes   ##########################################
      */
 
+    @Min(value = 1, message="Negative ID values not allowed.")
     private int id;
     private int senderId;
     private int receiverId;
     LocalDateTime timestamp = LocalDateTime.now();
+    @NotBlank(message = "A message must have text content.")
     private String content;
 
     /*

@@ -1,5 +1,8 @@
 package com.jacksoch.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 //Todo: ADD SPRING VALIDATION
 public class Group {
 
@@ -9,10 +12,14 @@ public class Group {
 
     private int id;
     private int ownerId;
+    @NotBlank(message = "Group must have a title.")
     private String title;
+    @NotBlank(message = "Group must specify the game being played")
     private String game;
+    @Min(value = 1, message = "Groups must have at least 1 player.")
     private int maxPlayerCount;
     private boolean isAcceptingNewPlayers = true;
+    @NotBlank(message = "Group must have a description.")
     private String description;
     private String location;
 

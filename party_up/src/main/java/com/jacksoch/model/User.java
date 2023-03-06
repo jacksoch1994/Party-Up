@@ -1,5 +1,7 @@
 package com.jacksoch.model;
 
+import javax.validation.constraints.NotBlank;
+
 public class User {
 
     /*
@@ -7,7 +9,9 @@ public class User {
      */
 
     private int id;
+    @NotBlank(message = "Username cannot be blank.")
     private String username;
+    @NotBlank(message = "Email must not be blank.")
     private String email;
     private String phone;
     private String pfpURL;

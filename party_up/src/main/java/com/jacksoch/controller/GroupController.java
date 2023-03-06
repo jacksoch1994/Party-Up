@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -63,12 +64,12 @@ public class GroupController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Group create(@RequestBody Group group) {
+    public Group create(@Valid @RequestBody Group group) {
         return dao.createGroup(group);
     }
 
     @PutMapping("/{id}")
-    public Group update(@RequestBody Group group, @PathVariable int id) {
+    public Group update(@Valid @RequestBody Group group, @PathVariable int id) {
         //Handle Case if Does Not Exist
         if (dao.getGroup(id) == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unknown Group");
@@ -76,7 +77,6 @@ public class GroupController {
         return dao.updateGroup(group, id);
     }
 
-    //ToDo: ADD VALIDATION
     @ResponseStatus(HttpStatus.ACCEPTED)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) {
