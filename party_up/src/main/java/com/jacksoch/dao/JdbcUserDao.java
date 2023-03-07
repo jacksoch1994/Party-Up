@@ -78,6 +78,18 @@ public class JdbcUserDao implements  UserDao{
     }
 
     @Override
+    public User getUserByEmail(String email) {
+        String sql = "SELECT * FROM user_account WHERE email = ?";
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, email);
+
+        User user = null;
+        if (rows.next()) {
+            user = mapRowToUser(rows);
+        }
+        return user;
+    }
+
+    @Override
     public List<User> getUsersByGroup(int groupId) {
         String sql = "SELECT * FROM user_account AS ua JOIN user_group AS " +
                 "ug ON ua.user_id = ug.player_id WHERE group_id = ?;";

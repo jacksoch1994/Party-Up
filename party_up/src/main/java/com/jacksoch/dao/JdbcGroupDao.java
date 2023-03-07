@@ -115,6 +115,30 @@ public class JdbcGroupDao implements GroupDao{
     }
 
     @Override
+    public int playerCount(int groupId) {
+        String sql = "SELECT COUNT(*) FROM user_group WHERE group_id = ?;";
+        Integer playerCount = jdbcTemplate.queryForObject(sql, Integer.class, groupId);
+
+        if (playerCount == null) {
+            return 0;
+        } else {
+            return playerCount;
+        }
+    }
+
+    @Override
+    public boolean addPlayer(int groupId, int playerId) {
+        String sql = "INSERT INTO user_group(player_id, group_id) VALUES(?,?);";
+
+        if (getGroup(groupId) == null || playerCount(groupId) >= getGroup(groupId).getMaxPlayerCount()) {
+            return false;
+        }
+
+        jdbcTemplate.update(sql, playerId, groupId);
+        return true;
+    }
+
+    @Override
     public void deleteGroup(int id) {
         String sql = "DELETE FROM play_group WHERE group_id = ?;";
         jdbcTemplate.update(sql, id);

@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4041ae74-9198-431a-bd8b-dd2d1fa9249c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/JoinRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/JoinRequestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/GroupDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/GroupDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcGroupDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcGroupDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/JdbcUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/dao/UserDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../week-7-pair-exercise-team-8/exercise" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />

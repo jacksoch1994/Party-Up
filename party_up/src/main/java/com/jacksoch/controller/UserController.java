@@ -62,6 +62,11 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public User create(@Valid @RequestBody User user) {
+        if (dao.getUserByUsername(user.getUsername()) != null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "A user with this username already exists.");
+        } if (dao.getUserByEmail(user.getEmail()) != null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "This email address is already in use.");
+        }
         return dao.createUser(user);
     }
 

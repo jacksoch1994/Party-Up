@@ -38,6 +38,14 @@ public interface UserDao {
     User getUserByUsername(String username);
 
     /**
+     * Returns the user associated with the email address provided. If user does not exist, return null.
+     *
+     * @param email email of the user
+     * @return the User with the email provided
+     */
+    User getUserByEmail(String email);
+
+    /**
      * Return a list of Users that are players in the playgroup with the provided groupId.
      *
      * @param groupId groupId of the specified playgroup

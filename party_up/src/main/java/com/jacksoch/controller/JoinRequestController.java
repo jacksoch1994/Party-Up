@@ -1,9 +1,12 @@
 package com.jacksoch.controller;
 
+import com.jacksoch.dao.GroupDao;
 import com.jacksoch.dao.JoinRequestDao;
+import com.jacksoch.dao.UserDao;
 import com.jacksoch.model.JoinRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +19,20 @@ public class JoinRequestController {
     ########################################   Attributes   ##########################################
      */
 
-    private JoinRequestDao dao;
+    private JoinRequestDao joinRequestDao;
+    private UserDao userDao;
+    private GroupDao groupDao;
+
 
     /*
    ########################################   Constructor   ##########################################
     */
 
-    public JoinRequestController(JoinRequestDao dao) {this.dao = dao;}
+    public JoinRequestController(JoinRequestDao joinRequestDao, UserDao userDao, GroupDao groupDao) {
+        this.joinRequestDao = joinRequestDao;
+        this.userDao = userDao;
+        this.groupDao = groupDao;
+    }
 
     /*
    ########################################  API Endpoints  ##########################################
@@ -35,13 +45,13 @@ public class JoinRequestController {
         List<JoinRequest> requests = new ArrayList<>();
 
         if (playerId != null && groupId != null) {
-            requests.add(dao.getJoinRequest(playerId, groupId));
+            requests.add(joinRequestDao.getJoinRequest(playerId, groupId));
         } else if (playerId != null) {
-            requests = dao.getAllJoinRequestsByPlayer(playerId);
+            requests = joinRequestDao.getAllJoinRequestsByPlayer(playerId);
         } else if (groupId != null) {
-            requests = dao.getAllJoinRequestsByGroup(groupId);
+            requests = joinRequestDao.getAllJoinRequestsByGroup(groupId);
         } else {
-            requests = dao.getAllJoinRequests();
+            requests = joinRequestDao.getAllJoinRequests();
         }
 
         return requests;
@@ -50,13 +60,19 @@ public class JoinRequestController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public void create(JoinRequest joinRequest) {
-        dao.createJoinRequest(joinRequest);
+        if (userDao.getUser(joinRequest.getPlayer_id()) != null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unknown User.");
+        } else if (groupDao.getGroup(joinRequest.getGroup_id()) != null) {
+            throw  new ResponseStatusException(HttpStatus.NOT_FOUND, "Unknown Group");
+        }
+
+        joinRequestDao.createJoinRequest(joinRequest);
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @DeleteMapping
     public void delete(JoinRequest joinRequest) {
-        dao.deleteJoinRequest(joinRequest);
+        joinRequestDao.deleteJoinRequest(joinRequest);
     }
 
 }
