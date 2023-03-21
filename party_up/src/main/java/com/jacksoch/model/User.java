@@ -15,6 +15,7 @@ public class User {
     private String email;
     private String phone;
     private String pfpURL;
+    private String password;
 
     /*
     ######################################## Getter Methods ##########################################
@@ -38,6 +39,10 @@ public class User {
 
     public String getPfpURL() {
         return pfpURL;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     /*
@@ -64,6 +69,9 @@ public class User {
         this.pfpURL = pfpURL;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
     /*
     ########################################   Constructor   ##########################################
      */
@@ -76,6 +84,7 @@ public class User {
     }
 
     //Constructor with all values
+
     public User(int user_id, String username, String email, String phone, String pfpURL) {
         this(user_id, username, email);
         this.phone = phone;
@@ -84,4 +93,13 @@ public class User {
 
     public User() {}
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }

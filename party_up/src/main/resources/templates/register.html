@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register | Party Up!</title>
+</head>
+
+<body>
+    <!-- Specify Thymeleaf specific actions and object to reflect back-end endpoint and user -->
+    <form action="#" method="post" th:action="@{/register}" th:object="${user}">
+
+        <label for="email">
+            Email:
+            <input type="text" name="email" id="email" th:field="*{email}" required />
+        </label>
+        <br />
+        <label for="username">
+            Username:
+            <input type="text" name="username" id="username" th:field="*{username}" required />
+        </label>
+        <br />
+        <label for="password">
+            Password:
+            <input type="password" name="password" id="password" th:field="*{password}" required />
+        </label>
+        <br />
+        <label for="phone">
+            Phone Number:
+            <input type="tel" name="phone" id="phone" th:field="*{phone}" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
+        </label>
+        <br />
+        <input type="submit">
+
+    </form>
+
+</body>
+
+</html>
