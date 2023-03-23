@@ -1,4 +1,4 @@
-package com.jacksoch.controller;
+package com.jacksoch.controller.api;
 
 import com.jacksoch.dao.MessageDao;
 import com.jacksoch.model.Message;

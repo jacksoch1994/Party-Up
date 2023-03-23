@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4041ae74-9198-431a-bd8b-dd2d1fa9249c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/PageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/api/GroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/JoinRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/api/JoinRequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/api/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/PageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jacksoch/controller/api/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
